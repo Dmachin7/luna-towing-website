@@ -362,11 +362,6 @@ section { padding: 5rem 0; }
   gap: 1.5rem;
 }
 
-/* Center the lone 7th card when it falls in column 1 of a new row */
-.service-card:last-child:nth-child(3n + 1) {
-  grid-column: 2;
-}
-
 .service-card {
   background: var(--card-bg);
   border: 1px solid rgba(255, 0, 204, 0.12);
@@ -930,7 +925,6 @@ blockquote {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .service-card:last-child:nth-child(3n + 1) { grid-column: 1; }
   .service-card { padding: 1.5rem 1.25rem; }
   .service-icon { font-size: 1.75rem; }
 
@@ -1000,12 +994,6 @@ blockquote {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
-  }
-  /* With 2 cols and 7 cards: 3 full rows + 1 orphan — center it */
-  .service-card:last-child:nth-child(2n + 1) {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 0.625rem);
-    margin: 0 auto;
   }
 
   .about-inner { gap: 2.5rem; }
