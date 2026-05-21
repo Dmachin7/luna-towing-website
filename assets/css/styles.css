@@ -344,13 +344,52 @@ section { padding: 5rem 0; }
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
   color: var(--pink);
-  font-size: 1.5rem;
-  animation: bounce 1.8s ease-in-out infinite;
+  cursor: pointer;
 }
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(8px); }
+
+.scroll-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 0, 204, 0.75);
+  margin-bottom: 2px;
+}
+
+.scroll-chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.scroll-chevrons svg {
+  width: 28px;
+  height: 28px;
+  color: var(--pink);
+  filter: drop-shadow(0 0 6px var(--pink-glow));
+}
+
+/* First chevron fades out as second bounces in — staggered cascade */
+.scroll-chevrons svg:nth-child(1) {
+  opacity: 0.4;
+  animation: chevron-fade 1.6s ease-in-out infinite;
+}
+.scroll-chevrons svg:nth-child(2) {
+  opacity: 0.9;
+  animation: chevron-fade 1.6s ease-in-out 0.25s infinite;
+  margin-top: -10px;
+}
+
+@keyframes chevron-fade {
+  0%, 100% { opacity: 0.2; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(5px); }
 }
 
 /* ============================================================
@@ -963,7 +1002,7 @@ blockquote {
     font-size: 0.7rem;
     line-height: 1.8;
   }
-  .hero-scroll-hint { display: none; }
+  .hero-scroll-hint { bottom: 1.25rem; }
 
   /* Services */
   .services-grid {
